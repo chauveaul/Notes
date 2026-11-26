@@ -633,3 +633,144 @@ $$
 <u>Remarque :</u> $\tan x \sim_0 x$ et $\sin(x) \sim_0 x$
 
 > <span style="color:red">⚠️ Utiliser les IPE dans des factorisations seulement (pas des sommes)</span>
+
+---
+
+### 3.5 Fonctions continues
+
+> [!definition] Déf
+> Soit $f : \mathbb{R} \to \mathbb{R}$ d.v. $x_0$. On dit que $f$ est <u>continue en $x_0$</u> si et seulement si
+> $$\lim_{x \to x_0} f(x) = f(x_0)$$
+
+#### (Contre-)exemples
+
+**①** $f(x) = \sin x$
+
+On sait que $\displaystyle\lim_{x \to 0} \sin(x) = 0 = \sin(0)$. Donc, $\sin x$ est continue en $x_0 = 0$.
+
+Soit $x_0 \neq 0$ et montrons que
+$$\lim_{x \to x_0} \sin x = \sin x_0$$
+
+Soit $\varepsilon > 0$.
+$$
+\begin{aligned}
+|\sin x - \sin x_0| < \varepsilon \iff{}& \left|2\sin\left(\frac{x - x_0}{2}\right)\cos\left(\frac{x + x_0}{2}\right)\right| < \varepsilon \\
+\Longleftarrow{}& \left|\sin\left(\frac{x - x_0}{2}\right)\right| < \frac{\varepsilon}{2} && \text{(condition plus forte)} \\
+\Longleftarrow{}& \left|\frac{x - x_0}{2}\right| < \frac{\varepsilon}{2} && \text{(condition plus forte)}
+\end{aligned}
+$$
+
+On prend alors $\delta = \varepsilon$ et
+$$|x - x_0| < \delta \implies |\sin x - \sin x_0| < \varepsilon$$
+
+![[ch3-continuite-sin.svg]]
+
+Si $\left|x - \dfrac{7\pi}{15}\right| < \dfrac{1}{10} \implies \left|\sin x - \sin\dfrac{7\pi}{15}\right| < \dfrac{1}{10}$
+
+Donc, $\sin x$ est continue en tout $x \in \mathbb{R}$.
+
+**②** $f(x) = \begin{cases} \operatorname{sgn}(x) & \text{si } x \neq 0 \\ 0 & \text{si } x = 0 \end{cases}$
+
+![[ch3-sgn.svg]]
+
+$$\lim_{x \to 0^+} f(x) = \lim_{x \to 0^+} 1 = 1$$
+$$\lim_{x \to 0^-} f(x) = \lim_{x \to 0^-} (-1) = -1$$
+
+Donc $\displaystyle\lim_{x \to 0} f(x)$ n'existe pas.
+
+<u>Manière alternative</u>
+
+$$|f(0) - f(x)| < \frac{1}{2} \qquad \left(\varepsilon = \frac{1}{2}\right)$$
+$$\iff x = 0 \qquad \underline{\text{pas un voisinage épointé de } 0}$$
+$$\implies \nexists\, \delta > 0 \text{ tel que } 0 < |x - 0| < \delta \implies |f(x) - f(0)| < \frac{1}{2}$$
+
+Donc, $\displaystyle\lim_{x \to 0} f(x) \neq 0$
+
+Donc $\displaystyle\lim_{x \to 0} f(x) \neq f(0)$
+
+Ainsi, $f(x)$ est discontinue en $x_0 = 0$.
+
+**③** $f(x) = \sqrt{x}$, $x \geq 0$, $x_0 > 0$
+
+![[ch3-racine-continuite.svg]]
+
+<u>Soit $\varepsilon > 0$</u>
+$$
+\begin{aligned}
+&|\sqrt{x} - \sqrt{x_0}| < \varepsilon \\
+\iff{}& \frac{|x - x_0|}{|\sqrt{x} + \sqrt{x_0}|} < \varepsilon \\
+\Longleftarrow{}& \frac{|x - x_0|}{\sqrt{x_0}} < \varepsilon \\
+\iff{}& |x - x_0| < \varepsilon\sqrt{x_0}
+\end{aligned}
+$$
+
+On pose $\delta = \varepsilon\sqrt{x_0}$ : si $|x - x_0| < \delta \implies |\sqrt{x} - \sqrt{x_0}| < \varepsilon$
+
+Donc, $\displaystyle\lim_{x \to x_0} \sqrt{x} = \sqrt{x_0}$, et $\sqrt{x}$ est continue pour $x_0 \neq 0$.
+
+**③b** $\displaystyle\lim_{x \to 0^+} \sqrt{x} = 0$
+
+Pour $\varepsilon > 0$ donné, trouver un $\delta > 0$ tel que
+$$0 < x - x_0 < \delta \implies |\sqrt{x} - \sqrt{0}| < \varepsilon$$
+
+Soit $\varepsilon > 0$, $|\sqrt{x} - \sqrt{0}| < \varepsilon$
+$$\iff \sqrt{x} < \varepsilon \iff x < \varepsilon^2$$
+
+En posant $\delta = \varepsilon^2$ on a
+$$0 < x < \delta \implies |\sqrt{x} - \sqrt{0}| < \varepsilon$$
+
+Donc $\sqrt{x}$ est <u>continue</u> sur $\mathbb{R}_+$.
+
+On dénote par $C(I)$ la collection des fonctions continues sur l'intervalle $I$.
+$$C(I) = \left\{ f : \mathbb{R} \to \mathbb{R} \;\middle|\; \forall x_0 \in I,\ \lim_{x \to x_0} f(x) = f(x_0) \right\}$$
+
+> - <span style="color:#e040c0">$(x \to x_0^+)$ si $I = [x_0, \dots[$</span>
+> - <span style="color:#22b5c9">$(x \to x_0^-)$ si $I = ]\dots, x_0]$</span>
+
+$\operatorname{sgn}(x) \in C(\mathbb{R}^*)$
+
+> [!important] Théorème
+> Soient $f, g : \mathbb{R} \to \mathbb{R}$ continues en $x_0$.
+> Alors $f + g$, $f \cdot g$, $\dfrac{f}{g}$ (si $g \neq 0$) sont continues en $x_0$.
+
+<u>Preuve :</u> toutes ces propriétés pour les fonctions sont des héritages de la caractérisation par les suites. $\blacksquare$
+
+<u>**Conséquences**</u> $x$ est continue. Donc $x^2, x^3, x^4, \dots$,
+$$p(x) = a_n x^n + a_{n-1}x^{n-1} + \dots + a_1 x + a_0,$$
+$$\frac{p(x)}{q(x)},\ \sin x,\ \cos x,\ \tan x,\ \cot x,$$
+sont toutes continues.
+
+<u>**Contre-exemple**</u>
+
+**④** $f(x) = \sin\left(\dfrac{1}{x}\right)$
+
+![[ch3-sin-inverse.svg]]
+
+Posons les suites
+$$a_n = \frac{1}{n\pi} \qquad b_n = \frac{1}{\frac{\pi}{2} + 2n\pi}$$
+
+On a $\displaystyle\lim_{n \to \infty} a_n = 0 = \lim_{n \to \infty} b_n$
+
+mais
+$$\lim_{n \to \infty} f(a_n) = \lim_{n \to \infty} (0) = 0$$
+$$\lim_{n \to \infty} f(b_n) = \lim_{n \to \infty} (1) = 1$$
+
+Donc, $\displaystyle\lim_{x \to 0} f(x)$ n'existe pas.
+
+> [!important] Théorème
+> Soit $f : \mathbb{R} \to \mathbb{R}$ d.v. $x_0$ tel que
+> $$\lim_{x \to x_0} f(x) = \ell$$
+> Soit $g : \mathbb{R} \to \mathbb{R}$, $g$ d.v. $\ell$, <u>continue en $\ell$</u>, tel que $\displaystyle\lim_{x \to \ell} g(x) = K$ $\big(= g(\ell)\big)$
+>
+> Alors $\displaystyle\lim_{x \to x_0} g(f(x)) = K$
+
+<u>Preuve :</u> Soit $\varepsilon > 0$, puisque $g$ est continue en $\ell$, $\exists\, \delta_1 > 0$ tel que
+$$|y - \ell| < \delta_1 \implies |g(y) - K| < \varepsilon$$
+
+Puisque $f$ continue en $x_0$, $\exists\, \delta_2$ tel que
+$$|x - x_0| < \delta_2 \implies |f(x) - \ell| < \delta_1$$
+
+Donc si
+$$|x - x_0| < \delta_2 \implies |f(x) - \ell| < \delta_1 \implies |g(f(x)) - K| < \varepsilon \qquad \blacksquare$$
+
+<u>**Exemples**</u> $\sqrt{x^2 + 1}$, $\sin(\cos(x))$, $\sqrt{\sin^2(x)} = |\sin(x)|$ sont continues.
