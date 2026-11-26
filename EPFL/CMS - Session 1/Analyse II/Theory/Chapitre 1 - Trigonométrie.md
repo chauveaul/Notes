@@ -5,7 +5,7 @@ source: "Chapitre 1 - Analyse II.pdf"
 tags: [analyse-II, chapitre-1]
 ---
 
-# Chapitre 1 : test
+# Chapitre 1 : Trigonométrie
 
 ### 1.1 Cercle et angles trigo.
 
