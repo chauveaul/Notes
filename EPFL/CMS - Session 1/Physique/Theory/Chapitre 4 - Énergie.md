@@ -178,3 +178,133 @@ $$\frac{1}{2}mv_2^2 - \frac{1}{2}mv_1^2 = W_{1 \to 2}(m\vec{g}) + W_{1 \to 2}(\v
 ![[p4-travail-poids.svg]]
 
 - prouver $W_{1 \to 2} = mgh_1 - mgh_2$
+
+<u>**Cas particuliers**</u>
+
+1) $\vec{F} \perp \vec{v} \ \forall t$ (force normale) : $W_{1 \to 2}(\vec{F}) = 0$
+2) $\vec{F} = F_0\,\vec{e}_t$ avec $F$ constant $\forall t$ (force tangentielle de norme constante) : $W_{1 \to 2}(\vec{F}) = F_0\,l$ $\quad$ ($l$ : longueur du parcours)
+3) $\vec{F} = m\vec{g}$ = constante : $W_{1 \to 2}(m\vec{g}) = mgh_1 - mgh_2$
+
+<u>Remarque :</u> En général le travail d'une force dépend du trajet ! Parfois il ne dépend que des extrémités du trajet
+
+#### 4.2.2 Forces conservatives
+
+> [!definition]
+> Une force est dite <u>conservative</u> si son travail de ① vers ② ne dépend pas du chemin de ① à ②
+
+<u>**Exemple :**</u> le poids
+
+![[p4-poids-conservatif.svg]]
+
+Objet : $m$
+
+Travail du poids $m\vec{g}$
+$$W_{1 \to 2}(m\vec{g}) = \int_1^2 m\vec{g} \cdot d\vec{r}_{cm} \underset{m\vec{g} \,:\, \text{const}}{=} m\vec{g} \cdot \underbrace{\int_1^2 d\vec{r}_{cm}}_{\color{orange}{\Delta\vec{r} \,:\, \text{déplacement total}}} = m\vec{g} \cdot \Delta\vec{r} = m\vec{g} \cdot (\vec{r}_2 - \vec{r}_1)$$
+$$= (-m\vec{g} \cdot \vec{r}_1) - (-m\vec{g} \cdot \vec{r}_2) \qquad \color{orange}{\text{indépendant du trajet !}}$$
+
+<u>Remarque :</u>
+
+![[p4-g-dot-r.svg]]
+
+$$\vec{g} \cdot \vec{r} = -gh$$
+
+Donc
+$$\boxed{W_{1 \to 2}(m\vec{g}) = mgh_1 - mgh_2}$$
+
+On peut donc écrire ce travail comme une différence de 2 termes similaires, associés aux extrémités du trajet.
+On peut associer une énergie dite potentielle à tout point $\vec{r}$ !
+
+> [!important] Énergie potentielle de gravitation
+> $$E_{pot}(\vec{r}) = -m\vec{g} \cdot \vec{r} = mgh$$
+
+C'est l'énergie associée au poids : définie en tout point à une constante arbitraire près (choix de l'origine).
+Cette constante tombe dans la différence
+
+![[p4-energie-pot-points.svg]]
+
+$$
+\begin{aligned}
+E_{pot}(P) &= -m\vec{g} \cdot \vec{r}_P + \text{const} = mgh_P + \text{const} \\
+E_{pot}(Q) &= mgh_Q + \text{const} \\
+E_{pot}(R) &= mgh_R + \text{const}
+\end{aligned}
+$$
+
+Alors, par exemple, le travail entre $Q$ et $R$ est directement
+$$W_{1 \to 2} = E_{pot}(Q) - E_{pot}(R)$$
+
+<u>**Ex.**</u> gravitation (cas général)
+
+![[p4-gravitation-general.svg]]
+
+Objet : $m$
+$$\vec{F} = -G\,\frac{Mm}{r^2}\,\vec{e}_r$$
+
+On peut calculer
+$$W_{1 \to 2}(\vec{F}) = \int_1^2 \vec{F} \cdot d\vec{r}_{cm} = \dots = E_{pot}(1) - E_{pot}(2)$$
+
+avec
+$$\boxed{E_{pot}(\vec{r}) = -\frac{GMm}{r} + \text{const}}$$
+
+<u>Remarque :</u> on a bien que $E_{pot}$ augmente si on s'éloigne de $M$
+- cas $m\vec{g}$ : $E_{pot} = mgh + \text{const}$ et $E_{pot} \nearrow$ si $h \nearrow$
+- cas général : pour const $= 0$
+
+![[p4-epot-graphe.svg]]
+
+<u>**Ex :**</u> force élastique
+
+![[p4-ressort.svg]]
+
+Objet : $m$
+$$W_{1 \to 2}(\vec{F}) = \dots = \frac{1}{2}kd_1^2 - \frac{1}{2}kd_2^2$$
+d'où
+$$\boxed{E_{pot}(\vec{r}) = \frac{1}{2}kd^2 + \text{const}}$$
+
+Le travail d'une force conservative s'écrit donc comme différence d'énergie potentielle.
+
+> [!important]
+> $$W_{1 \to 2}(\vec{F}^{\,cons}) = E_{pot}(1) - E_{pot}(2) \qquad \color{red}{⚠️ \text{ordre}}$$
+
+Si toutes les forces sont conservatives (ou ne travaillent pas), on a
+$$E_{cin,cm}(2) - E_{cin,cm}(1) = W_{1 \to 2}(\vec{F}^{\,cons}) = E_{pot}(1) - E_{pot}(2)$$
+$$\iff \underbrace{E_{cin,cm}(2) + E_{pot}(2)}_{\color{orange}{E_{mec}(2)}} = \underbrace{E_{cin,cm}(1) + E_{pot}(1)}_{\color{orange}{E_{mec}(1)}}$$
+
+D'où
+$$\boxed{E_{mec} = E_{cin} + E_{pot}}$$
+l'énergie mécanique est l'énergie associée au mouvement et à la position.
+
+> [!important]
+> Donc si toutes les forces sont conservatives ou ne travaillent pas,
+> $$E_{mec} = \text{const} \quad \forall t$$
+
+<u>Remarque :</u> d'où le terme de force conservative.
+
+<u>**Ex :**</u> pendule simple
+
+![[p4-pendule-energie.svg]]
+
+Objet : $m$
+Forces : $\left.\begin{aligned} &\text{poids (conservatif)} \\ &\text{tension (ne travaille pas)} \end{aligned}\right\} E_{mec} = \text{const}$
+Newton : $m\vec{g} + \vec{T} = m\vec{a}$
+
+Énergie mécanique conservée : $\dfrac{1}{2}mv^2 + mgh = \text{const} \ \forall t$
+
+<u>**Ex.**</u> Vitesse de libération d'un astre : vitesse initiale pour qu'un objet ne retombe pas
+
+![[p4-liberation.svg]]
+
+Objet : $m$
+Force : gravitation (conservative)
+
+<u>Remarque :</u> $E_{mec} = \text{const} \ \forall t$ $\qquad$ cas limite : $\vec{v}_2 = \vec{0}$ à l'$\infty$ $\qquad$ choix const $= 0$
+
+$$
+\begin{aligned}
+E_{mec}(1) &= \frac{1}{2}mv_1^2 + \left(-G\frac{Mm}{R}\right) \\
+E_{mec}(2) &= 0 + 0 \\
+\implies \frac{1}{2}mv_1^2 - G\frac{Mm}{R} &= 0 \implies v_1 = \sqrt{\frac{2GM}{R}}
+\end{aligned}
+$$
+
+ex. pour la terre, $v_1 \cong 11 \ \mathrm{km/s}$
