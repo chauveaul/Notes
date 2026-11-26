@@ -62,6 +62,77 @@ def triangle(n):
 	L'algorithme regarde `n = len(L)` éléments ce qui lui donne une compléxité de n. $\iff \Omega{n}, \mathcal{O}(n) \iff \Theta(n)$
 
 5. 
+a)
+
 	Max:
 	- $\mathcal{O}(n), \Omega(n) \implies \Theta(n)$
+	- oui
+	Sum:
+	- $\mathcal{O}(n), \Omega(n) \implies \Theta(n)$
+	- oui
+	Count:
+	- $\mathcal{O}(n), \Omega(n) \implies \Theta(n)$
+	- oui
+	Index: 
+	- $\mathcal{O}(n), \Omega(1)$
+	- oui
+
+b) 
+	Pop:
+	- $\mathcal{O}(n), \Omega(1)$
+	Remove:
+	- $\mathcal{O}(n), \Omega(n)$
+	Insert:
+	- $\mathcal{O}(n), \Omega(1)$
+
+6. 
+```python
+from time import time
+from random import randint
+
+L = []
+for i in range(1000):
+	L.append(randint(0, 1000))
+
+def max_somme(L):
+    n = len(L)
+    max_s = L[0] + L[1] + L[2]
+    for i in range(n):
+        for j in range(i+1, n):
+			for k in range(j+1, n):
+	            if L[i] + L[j] + L[k] > max_s:
+	                max_s = L[i] + L[j] + L[k]
+    return max_s
 	
+t0 = time()
+max_somme(L)
+t1 = time()
+print('max_somme(L) a pris', t1 - t0, 'secondes')
+
+```
+
+```python
+from time import time
+from random import randint
+
+L = []
+for i in range(1000):
+	L.append(randint(0, 1000))
+
+def max_somme_lin(L):
+    max_1 = max(L)
+    L.remove(max_1)  # attention : modifie L
+    max_2 = max(L)
+	L.remove(max_2)
+	max_3 = max(L)
+    return max_1 + max_2 + max_3
+	
+t0 = time()
+max_somme_lin(L)
+t1 = time()
+print('max_somme_lin(L) a pris', t1 - t0, 'secondes')
+```
+
+- Il ne serait pas judicieux de passer de grandes listes à `max_somme` car il est de compléxité $\Theta(n^3)$. `max_somme_lin` est optimisé avec un temps de parcours maximal de $\Theta(n)$. Il serait donc judicieux de le lui passer
+
+7. (Facultatif)
