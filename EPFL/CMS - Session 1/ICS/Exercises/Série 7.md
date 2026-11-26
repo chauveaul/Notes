@@ -36,6 +36,32 @@ def triangle(n):
 		print()
 ```
 	
- a) $\sum_{i=1}^{n-1} n+(n+1)$
- b) 
- 
+ a) $\frac{n(n+1)}{2}$
+ b) $\frac{n(n+1)}{2} = \frac{n^2+n}{2} = \frac{1}{2}n^2 + \frac{1}{2}n$, le terme dominant est toujours $n^2$ $\implies \Theta (n^2)$
+
+ 4. On reproduit ci-dessous l'algorithme `max_somme` vu au cours, qui calcule la somme maximale de deux éléments d'une liste `L` de nombres:
+	```python
+	def max_somme_lin(L):
+		if len(L) < 2:
+			return
+		max_1, max_2 = 0,0
+		if L[0] > L[1]:
+			max_1 = L[0]
+			max_2 = L[1]
+		else:
+			max_1 = L[1]
+			max_2 = L[0]
+		for i in range(2, len(L)):
+			if L[i] > max_2:
+				max_2 = L[i]
+			if max_2 > max_1:
+				max_1, max_2 = max_2, max_1
+		return max_1 + max_2	
+	```
+
+	L'algorithme regarde `n = len(L)` éléments ce qui lui donne une compléxité de n. $\iff \Omega{n}, \mathcal{O}(n) \iff \Theta(n)$
+
+5. 
+	Max:
+	- $\mathcal{O}(n), \Omega(n) \implies \Theta(n)$
+	

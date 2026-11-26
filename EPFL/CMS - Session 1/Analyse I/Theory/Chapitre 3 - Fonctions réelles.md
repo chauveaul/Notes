@@ -724,8 +724,8 @@ Donc $\sqrt{x}$ est <u>continue</u> sur $\mathbb{R}_+$.
 On dénote par $C(I)$ la collection des fonctions continues sur l'intervalle $I$.
 $$C(I) = \left\{ f : \mathbb{R} \to \mathbb{R} \;\middle|\; \forall x_0 \in I,\ \lim_{x \to x_0} f(x) = f(x_0) \right\}$$
 
-> - <span style="color:#e040c0">$(x \to x_0^+)$ si $I = [x_0, \dots[$</span>
-> - <span style="color:#22b5c9">$(x \to x_0^-)$ si $I = ]\dots, x_0]$</span>
+> - $\color{violet} (x \to x_0^+) \space \text{si} \space I = [x_0, \dots[$
+> - $\color{cyan} (x \to x_0^+) \space \text{si} \space I = ]\dots, x_0]$
 
 $\operatorname{sgn}(x) \in C(\mathbb{R}^*)$
 
